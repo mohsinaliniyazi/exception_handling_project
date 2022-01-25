@@ -55,13 +55,13 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "employee/name/{name}", method = RequestMethod.GET)
-	public Employee fetchEmployeeByName(@PathVariable("name") String empName) {
+	public List<Employee> fetchEmployeeByName(@PathVariable("name") String empName) {
 		LOGGER.info("fetchEmployeeByName is method within EmployeeController {}");
 		return empService.fetchEmployeeByName(empName);
 	}
 	
 	@RequestMapping(value = "employee/name/{name}/{sal}", method = RequestMethod.GET)
-	public Employee fetchEmployeeByName(@PathVariable("name") String empName, @PathVariable("sal") double sal) {
+	public List<Employee> fetchEmployeeByName(@PathVariable("name") String empName, @PathVariable("sal") double sal) {
 		LOGGER.info("fetchEmployeeByNameAndSal is method within EmployeeController {}");
 		return empService.fetchEmployeeByNameAndSal(empName,sal);
 	}

@@ -18,9 +18,9 @@ public interface EmployeeService {
 
 	Employee updateEmployeeById(Long empId, Employee employee);
 
-	Employee fetchEmployeeByName(String empName);
+	List<Employee> fetchEmployeeByName(String empName);
 
-	Employee fetchEmployeeByNameAndSal(String empName, double sal);
+	List<Employee> fetchEmployeeByNameAndSal(String empName, double sal);
 	
 	
  
