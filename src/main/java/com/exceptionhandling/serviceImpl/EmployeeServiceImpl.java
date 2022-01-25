@@ -31,7 +31,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<Employee> fetchEmployeeList() {
 		LOGGER.info("fetchEmployeeList is method within EmployeeServiceImpl {}");
-		return empRepository.findAll();
+		
+		List<Employee> emp = empRepository.getAllEmployee();
+		emp.forEach(e->{System.out.println(e);});
+		return empRepository.getAllEmployee();
 	}
 
 	@Override
@@ -90,9 +93,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee fetchEmployeeByName(String empName) {
+		
+		List<Employee> emp  = empRepository.getAllEmployeeByName(empName);
+		
+		emp.forEach(e -> {System.out.println(e);});
+		
 		return empRepository.findByEmpName(empName);
 	}
 
-	
+	@Override
+	public Employee fetchEmployeeByNameAndSal(String empName, double sal) {
+		
+		List<Employee> emp  = empRepository.getAllEmployeeByNameAndSal(empName,sal);
+		
+		emp.forEach(e -> {System.out.println(e);});
+		
+		return empRepository.findByEmpName(empName);
+	}
 
 }

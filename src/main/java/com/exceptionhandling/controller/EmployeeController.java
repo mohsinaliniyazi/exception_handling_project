@@ -1,7 +1,6 @@
 package com.exceptionhandling.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,6 +58,12 @@ public class EmployeeController {
 	public Employee fetchEmployeeByName(@PathVariable("name") String empName) {
 		LOGGER.info("fetchEmployeeByName is method within EmployeeController {}");
 		return empService.fetchEmployeeByName(empName);
+	}
+	
+	@RequestMapping(value = "employee/name/{name}/{sal}", method = RequestMethod.GET)
+	public Employee fetchEmployeeByName(@PathVariable("name") String empName, @PathVariable("sal") double sal) {
+		LOGGER.info("fetchEmployeeByNameAndSal is method within EmployeeController {}");
+		return empService.fetchEmployeeByNameAndSal(empName,sal);
 	}
 	
 }
