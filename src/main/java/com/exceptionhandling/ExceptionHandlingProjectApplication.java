@@ -9,5 +9,5 @@ public class ExceptionHandlingProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ExceptionHandlingProjectApplication.class, args);
 	}
-
+	
 }

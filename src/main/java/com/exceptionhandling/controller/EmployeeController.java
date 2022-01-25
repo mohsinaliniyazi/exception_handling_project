@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exceptionhandling.error.EmployeeNotFoundException;
 import com.exceptionhandling.model.Employee;
+import com.exceptionhandling.response.APIResponse;
 import com.exceptionhandling.service.EmployeeService;
 
 @RestController
@@ -55,9 +57,14 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "employee/name/{name}", method = RequestMethod.GET)
-	public List<Employee> fetchEmployeeByName(@PathVariable("name") String empName) {
+	public APIResponse<List<Employee>> fetchEmployeeByName(@PathVariable("name") String empName) {
 		LOGGER.info("fetchEmployeeByName is method within EmployeeController {}");
-		return empService.fetchEmployeeByName(empName);
+		List<Employee> list = empService.fetchEmployeeByName(empName);
+		
+		if(list.size()==0) {
+			return  new APIResponse<>(list.size(),HttpStatus.NOT_FOUND,list);
+		}
+		return  new APIResponse<>(list.size(),HttpStatus.OK,list);
 	}
 	
 	@RequestMapping(value = "employee/name/{name}/{sal}", method = RequestMethod.GET)
