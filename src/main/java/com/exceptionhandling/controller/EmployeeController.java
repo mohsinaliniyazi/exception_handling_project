@@ -1,5 +1,6 @@
 package com.exceptionhandling.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -35,6 +36,15 @@ public class EmployeeController {
 	public List<Employee> fetchEmployeeList(){
 		LOGGER.info("fetchEmployeeList is method within EmployeeController {}");
 		return empService.fetchEmployeeList();
+	}
+	
+	@RequestMapping(value = "/employee1", method = RequestMethod.GET)
+	public List<Employee> fetchEmployeeList1(){
+		LOGGER.info("fetchEmployeeList is method within EmployeeController {}");
+		List<Employee> list = new ArrayList<Employee>();
+		Employee emp = new Employee(1, "Mohsin", "Sof Engineer", 101.0, "Pune");
+		list.add(emp);
+		return list;
 	}
 	
 	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
