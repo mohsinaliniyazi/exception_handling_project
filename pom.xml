@@ -12,6 +12,7 @@
 	<groupId>com.exceptionhandling</groupId>
 	<artifactId>exception_handling_project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>exception_handling_project</name>
 	<description>exception_handling_project project for Spring Boot</description>
 	<properties>
