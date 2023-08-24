@@ -43,7 +43,9 @@ public class EmployeeController {
 		LOGGER.info("fetchEmployeeList is method within EmployeeController {}");
 		List<Employee> list = new ArrayList<Employee>();
 		Employee emp = new Employee(1, "Mohsin", "Sof Engineer", 101.0, "Pune");
+		Employee emp1 = new Employee(1, "Sana", "Sof Engineer", 102.0, "Chandigarh");
 		list.add(emp);
+		list.add(emp1);
 		return list;
 	}
 	
